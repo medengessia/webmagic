@@ -61,6 +61,9 @@ public class Site {
         return new Site();
     }
 
+
+    // Cookie management
+
     /**
      * Add a cookie with domain {@link #getDomain()}
      *
@@ -90,17 +93,6 @@ public class Site {
     }
 
     /**
-     * set user agent
-     *
-     * @param userAgent userAgent
-     * @return this
-     */
-    public Site setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-        return this;
-    }
-
-    /**
      * get cookies
      *
      * @return get cookies
@@ -119,6 +111,40 @@ public class Site {
     }
 
     /**
+     * manages the disablement of cookies
+     * @return true if cookie's management is disabled, false otherwise
+     */
+    public boolean isDisableCookieManagement() {
+        return disableCookieManagement;
+    }
+
+    /**
+     * Downloader is supposed to store response cookie.
+     * Disable it to ignore all cookie fields and stay clean.
+     * Warning: Set cookie will still NOT work if disableCookieManagement is true.
+     * @param disableCookieManagement disableCookieManagement
+     * @return this
+     */
+    public Site setDisableCookieManagement(boolean disableCookieManagement) {
+        this.disableCookieManagement = disableCookieManagement;
+        return this;
+    }
+
+
+    // User agent management
+
+    /**
+     * set user agent
+     *
+     * @param userAgent userAgent
+     * @return this
+     */
+    public Site setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+        return this;
+    }
+
+    /**
      * get user agent
      *
      * @return user agent
@@ -126,6 +152,9 @@ public class Site {
     public String getUserAgent() {
         return userAgent;
     }
+
+
+    // Domain management
 
     /**
      * get domain
@@ -146,6 +175,9 @@ public class Site {
         this.domain = domain;
         return this;
     }
+
+
+    // Charset management
 
     /**
      * Set charset of page manually.<br>
@@ -168,20 +200,8 @@ public class Site {
         return charset;
     }
 
-    public int getTimeOut() {
-        return timeOut;
-    }
 
-    /**
-     * set timeout for downloader in ms
-     *
-     * @param timeOut timeOut
-     * @return this
-     */
-    public Site setTimeOut(int timeOut) {
-        this.timeOut = timeOut;
-        return this;
-    }
+    // Status code management
 
     /**
      * Set acceptStatCode.<br>
@@ -206,6 +226,31 @@ public class Site {
         return acceptStatCode;
     }
 
+
+    // Timeout
+
+    /**
+     * get timeout
+     * @return timeout
+     */
+    public int getTimeOut() {
+        return timeOut;
+    }
+
+    /**
+     * set timeout for downloader in ms
+     *
+     * @param timeOut timeOut
+     * @return this
+     */
+    public Site setTimeOut(int timeOut) {
+        this.timeOut = timeOut;
+        return this;
+    }
+
+
+    // Sleep time
+
     /**
      * Set the interval between the processing of two pages.<br>
      * Time unit is milliseconds.<br>
@@ -222,10 +267,32 @@ public class Site {
      * Get the interval between the processing of two pages.<br>
      * Time unit is milliseconds.<br>
      *
-     * @return the interval between the processing of two pages,
+     * @return the interval between the processing of two pages.
      */
     public int getSleepTime() {
         return sleepTime;
+    }
+
+
+    // Retry times
+
+    /**
+     * Get the interval between the processing of two pages when retrying.
+     * @return the interval between the processing of two pages when retrying.
+     */
+    public int getRetrySleepTime() {
+        return retrySleepTime;
+    }
+
+    /**
+     * Set retry sleep times when download fail, 1000 by default. <br>
+     *
+     * @param retrySleepTime retrySleepTime
+     * @return this
+     */
+    public Site setRetrySleepTime(int retrySleepTime) {
+        this.retrySleepTime = retrySleepTime;
+        return this;
     }
 
     /**
@@ -235,23 +302,6 @@ public class Site {
      */
     public int getRetryTimes() {
         return retryTimes;
-    }
-
-    public Map<String, String> getHeaders() {
-        return headers;
-    }
-
-    /**
-     * Put an Http header for downloader. <br>
-     * Use {@link #addCookie(String, String)} for cookie and {@link #setUserAgent(String)} for user-agent. <br>
-     *
-     * @param key   key of http header, there are some keys constant in {@link HttpConstant.Header}
-     * @param value value of header
-     * @return this
-     */
-    public Site addHeader(String key, String value) {
-        headers.put(key, value);
-        return this;
     }
 
     /**
@@ -285,24 +335,43 @@ public class Site {
         return this;
     }
 
+
+    // Headers management
+
+    /**
+     * get headers
+     * @return headers
+     */
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    /**
+     * Put an Http header for downloader. <br>
+     * Use {@link #addCookie(String, String)} for cookie and {@link #setUserAgent(String)} for user-agent. <br>
+     *
+     * @param key   key of http header, there are some keys constant in {@link HttpConstant.Header}
+     * @param value value of header
+     * @return this
+     */
+    public Site addHeader(String key, String value) {
+        headers.put(key, value);
+        return this;
+    }
+
+
+    // Gzip management
+
+    /**
+     * describes the use of Gzip.
+     * @return true if Gzip is used, false otherwise
+     */
     public boolean isUseGzip() {
         return useGzip;
     }
 
-    public int getRetrySleepTime() {
-        return retrySleepTime;
-    }
 
-    /**
-     * Set retry sleep times when download fail, 1000 by default. <br>
-     *
-     * @param retrySleepTime retrySleepTime
-     * @return this
-     */
-    public Site setRetrySleepTime(int retrySleepTime) {
-        this.retrySleepTime = retrySleepTime;
-        return this;
-    }
+    // Others
 
     /**
      * Whether use gzip. <br>
@@ -316,22 +385,10 @@ public class Site {
         return this;
     }
 
-    public boolean isDisableCookieManagement() {
-        return disableCookieManagement;
-    }
-
     /**
-     * Downloader is supposed to store response cookie.
-     * Disable it to ignore all cookie fields and stay clean.
-     * Warning: Set cookie will still NOT work if disableCookieManagement is true.
-     * @param disableCookieManagement disableCookieManagement
-     * @return this
+     * creates a new task for the web site.
+     * @return an object, whose type is Task and containing a getter of site.
      */
-    public Site setDisableCookieManagement(boolean disableCookieManagement) {
-        this.disableCookieManagement = disableCookieManagement;
-        return this;
-    }
-
     public Task toTask() {
         return new Task() {
             @Override

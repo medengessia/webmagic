@@ -94,7 +94,7 @@ public class ScriptConsole {
         pageProcessor.getSite().setSleepTime(params.getSleepTime());
         pageProcessor.getSite().setRetryTimes(3);
         pageProcessor.getSite().setAcceptStatCode(WMCollections.<Integer>newHashSet(200, 404,403, 500,502));
-        Spider spider = Spider.create(pageProcessor).thread(params.getThread());
+        Spider spider = (Spider) Spider.create(pageProcessor).thread(params.getThread());
         spider.clearPipeline().addPipeline(new Pipeline() {
             @Override
             public void process(ResultItems resultItems, Task task) {
