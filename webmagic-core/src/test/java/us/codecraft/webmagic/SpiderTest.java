@@ -19,7 +19,7 @@ public class SpiderTest {
     @Ignore("long time")
     @Test
     public void testStartAndStop() throws InterruptedException {
-        Spider spider = Spider.create(new SimplePageProcessor( "http://www.oschina.net/*")).addPipeline(new Pipeline() {
+        Spider spider = (Spider) Spider.create(new SimplePageProcessor( "http://www.oschina.net/*")).addPipeline(new Pipeline() {
             @Override
             public void process(ResultItems resultItems, Task task) {
                 System.out.println(1);
@@ -43,7 +43,7 @@ public class SpiderTest {
     }
 
     private void testRound() {
-        Spider spider = Spider.create(new PageProcessor() {
+        Spider spider = (Spider) Spider.create(new PageProcessor() {
 
             private AtomicInteger count = new AtomicInteger();
 

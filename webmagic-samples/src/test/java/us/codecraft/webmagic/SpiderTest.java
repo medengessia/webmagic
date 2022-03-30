@@ -18,7 +18,7 @@ public class SpiderTest {
     @Ignore
     @Test
     public void testSpider() throws InterruptedException {
-        Spider me = Spider.create(new HuxiuProcessor()).addPipeline(new FilePipeline());
+        Spider me = (Spider) Spider.create(new HuxiuProcessor()).addPipeline(new FilePipeline());
         me.run();
     }
 

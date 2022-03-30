@@ -15,7 +15,7 @@ public class SeedUrlWithPortTest {
 
     @Test
     public void testSeedUrlWithPort() throws JMException {
-        Spider spider = Spider.create(new TempProcessor()).addUrl("http://www.hndpf.org:8889/");
+        Spider spider = (Spider) Spider.create(new TempProcessor()).addUrl("http://www.hndpf.org:8889/");
         SpiderMonitor.instance().register(spider);
         spider.run();
     }
