@@ -7,6 +7,8 @@ import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Task;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.UUID;
 
 /**
@@ -41,4 +43,11 @@ public class FilePipelineTest {
         FilePipeline filePipeline = new FilePipeline();
         filePipeline.process(resultItems, task);
     }
+    
+    @Test
+    public void testFilePipelineCreation () {
+    	FilePipeline filePipeline = new FilePipeline("path");
+    	assertEquals("path\\", filePipeline.getPath());
+    }
+    
 }

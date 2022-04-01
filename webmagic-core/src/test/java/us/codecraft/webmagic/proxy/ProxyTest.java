@@ -1,7 +1,6 @@
 package us.codecraft.webmagic.proxy;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -83,6 +82,15 @@ public class ProxyTest {
         assertEquals("password", proxy.getPassword());
         assertEquals("127.0.0.1", proxy.getHost());
         assertEquals(8080, proxy.getPort());
+    }
+    
+    @Test
+    public void testEquals () {
+    	Proxy proxy1 = Proxy.create(URI.create("//127.0.0.1:8080"));
+    	Proxy proxy2 = Proxy.create(URI.create("//127.0.0.1:8080"));
+    	assertTrue(proxy1.equals(proxy2));
+    	proxy2.setScheme("scheme");
+    	assertFalse(proxy1.equals(proxy2));
     }
 
     @Test
