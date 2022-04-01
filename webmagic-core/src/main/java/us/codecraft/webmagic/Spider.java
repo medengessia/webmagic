@@ -239,6 +239,14 @@ public class Spider extends SuperSpider {
         destroyWhenExit = true;
         return collectorPipeline.getCollected();
     }  
+    
+    /**
+     * Tells whether the urls are destroyed at the exit or not.
+     * @return true if they have been destroyed, false otherwise
+     */
+    public boolean isDestroyWhenExit() {
+		return destroyWhenExit;
+	}
 
     /**
      * Get the first item of the urls. 
@@ -297,12 +305,8 @@ public class Spider extends SuperSpider {
      */
     public Spider thread(ExecutorService executorService, int threadNum) {
         checkIfRunning();
-        this.threadNum = threadNum;
-        if (threadNum <= 0) {
-            throw new IllegalArgumentException("threadNum should be more than one!");
-        }
         this.executorService = executorService;
-        return this;
+        return (Spider) thread(threadNum);
     }
     
     /**
@@ -344,7 +348,6 @@ public class Spider extends SuperSpider {
      * @param request the request to assess
      */
     protected void onError(Request request, Exception e) {
-        this.onError(request);
 
         if (CollectionUtils.isNotEmpty(spiderListeners)) {
             for (SpiderListener spiderListener : spiderListeners) {

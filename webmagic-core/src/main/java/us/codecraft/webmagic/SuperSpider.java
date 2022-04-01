@@ -47,13 +47,13 @@ public abstract class SuperSpider implements Runnable, Task {
 
 	protected boolean spawnUrl = true;
 
-	protected CountableThreadPool threadPool;
-
 	protected String uuid;
 
     protected boolean exitWhenComplete = true;
 
     protected int threadNum = 1;
+    
+    protected CountableThreadPool threadPool;
 
 	protected final static int STAT_INIT = 0;
 
@@ -104,6 +104,14 @@ public abstract class SuperSpider implements Runnable, Task {
         this.spiderListeners = spiderListeners;
         return this;
     }
+    
+    /**
+     * Get the downloader.
+     * @return the downloader
+     */
+    public Downloader getDownloader() {
+		return downloader;
+	}
 
     /**
      * Get the start time of the crawler.
@@ -135,6 +143,17 @@ public abstract class SuperSpider implements Runnable, Task {
             return 0;
         }
         return threadPool.getThreadAlive();
+    }
+    
+    /**
+     * Set the threadPool
+     * @param threadPool
+     * @return this
+     */
+    public SuperSpider setThreadPool(CountableThreadPool threadPool) {
+        checkIfRunning();
+        this.threadPool = threadPool;
+        return this;
     }
 
     /**
@@ -174,6 +193,14 @@ public abstract class SuperSpider implements Runnable, Task {
 	public SuperSpider pipeline(Pipeline pipeline) {
         return addPipeline(pipeline);
     }
+    
+    /**
+     * Get the list of pipelines.
+     * @return the list of pipelines
+     */
+    public List<Pipeline> getPipelines() {
+		return pipelines;
+	}
 
     /**
      * add a pipeline for Spider
@@ -293,6 +320,14 @@ public abstract class SuperSpider implements Runnable, Task {
         this.startRequests = startRequests;
         return this;
     }
+    
+    /**
+     * Get the requests.
+     * @return the list of requests
+     */
+    public List<Request> getStartRequests() {
+		return startRequests;
+	}
 
     /**
      * start a thread
@@ -302,6 +337,14 @@ public abstract class SuperSpider implements Runnable, Task {
         thread.setDaemon(false);
         thread.start();
     }
+    
+    /**
+     * get the page processor
+     * @return the page processor
+     */
+    public PageProcessor getPageProcessor() {
+		return pageProcessor;
+	}
 
     /**
      * Get page count downloaded by spider.
@@ -312,6 +355,21 @@ public abstract class SuperSpider implements Runnable, Task {
     public long getPageCount() {
         return pageCount.get();
     }   
+    
+    /**
+     * Get the thread pool.
+     * @return thread pool
+     */
+    public CountableThreadPool getThreadPool() {
+		return threadPool;
+	}
+    /**
+     * Get the thread number.
+     * @return the thread number
+     */
+    public int getThreadNum() {
+		return threadNum;
+	}
 
     /**
      * start with more than one threads
@@ -345,6 +403,14 @@ public abstract class SuperSpider implements Runnable, Task {
         return site;
     }
 	
+    /**
+     * Set the state number.
+     * @param i the number of the state
+     */
+    public void setStat(int i) {
+		this.stat = new AtomicInteger(i);
+	}
+    
 	/**
 	 * Check if running
 	 */
