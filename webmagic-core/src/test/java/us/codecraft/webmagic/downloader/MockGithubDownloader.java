@@ -14,7 +14,8 @@ import java.io.InputStream;
  */
 public class MockGithubDownloader implements Downloader {
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public Page download(Request request, Task task) {
         Page page = new Page();
         InputStream resourceAsStream = this.getClass().getResourceAsStream("/html/mock-github.html");

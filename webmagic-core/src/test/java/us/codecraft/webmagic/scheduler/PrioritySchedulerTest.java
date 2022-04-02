@@ -1,6 +1,7 @@
 package us.codecraft.webmagic.scheduler;
 
-import junit.framework.Assert;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -43,13 +44,13 @@ public class PrioritySchedulerTest {
         priorityScheduler.push(request,task);
 
         Request poll = priorityScheduler.poll(task);
-        Assert.assertEquals("b",poll.getUrl());
+        assertEquals("b",poll.getUrl());
         poll = priorityScheduler.poll(task);
-        Assert.assertEquals("a",poll.getUrl());
+        assertEquals("a",poll.getUrl());
         poll = priorityScheduler.poll(task);
-        Assert.assertEquals("c",poll.getUrl());
+        assertEquals("c",poll.getUrl());
         poll = priorityScheduler.poll(task);
-        Assert.assertEquals("d",poll.getUrl());
+        assertEquals("d",poll.getUrl());
     }
 
     @Test
@@ -64,12 +65,12 @@ public class PrioritySchedulerTest {
         priorityScheduler.push(request,task);
 
         Request poll = priorityScheduler.poll(task);
-        Assert.assertEquals("a",poll.getUrl());
+        assertEquals("a",poll.getUrl());
 
         poll = priorityScheduler.poll(task);
-        Assert.assertEquals("b",poll.getUrl());
+        assertEquals("b",poll.getUrl());
 
         poll = priorityScheduler.poll(task);
-        Assert.assertEquals("c",poll.getUrl());
+        assertEquals("c",poll.getUrl());
     }
 }

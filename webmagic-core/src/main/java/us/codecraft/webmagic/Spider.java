@@ -348,7 +348,7 @@ public class Spider extends SuperSpider {
      * @param request the request to assess
      */
     protected void onError(Request request, Exception e) {
-
+    	this.onError(request, e);
         if (CollectionUtils.isNotEmpty(spiderListeners)) {
             for (SpiderListener spiderListener : spiderListeners) {
                 spiderListener.onError(request, e);

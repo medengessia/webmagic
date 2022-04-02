@@ -38,7 +38,8 @@ public class HttpUriRequestConverter {
         return httpClientRequestContext;
     }
 
-    private HttpClientContext convertHttpClientContext(Request request, Site site, Proxy proxy) {
+    @SuppressWarnings("deprecation")
+	private HttpClientContext convertHttpClientContext(Request request, Site site, Proxy proxy) {
         HttpClientContext httpContext = new HttpClientContext();
         if (proxy != null && proxy.getUsername() != null) {
             AuthState authState = new AuthState();

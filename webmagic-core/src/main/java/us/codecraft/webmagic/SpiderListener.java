@@ -17,7 +17,7 @@ public interface SpiderListener {
     public void onError(Request request);
 
     default void onError(Request request, Exception e) {
-        this.onError(request);
+        this.onError(request, e);
     }
 
 }

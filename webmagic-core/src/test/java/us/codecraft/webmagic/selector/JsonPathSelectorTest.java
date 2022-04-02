@@ -9,7 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * @author code4crafter@gmai.com <br>
+ * @author code4crafter@gmail.com <br>
  */
 public class JsonPathSelectorTest {
 

@@ -20,6 +20,7 @@ public class HtmlTest {
 		assertThat(selectable.regex("(a+b)").replace("aa(a)", "$1bb").toString()).isEqualTo("abbabbab");
     }
 
+	@SuppressWarnings("deprecation")
 	@Ignore("not work in jsoup 1.8.x")
 	@Test
 	public void testDisableJsoupHtmlEntityEscape() throws Exception {
