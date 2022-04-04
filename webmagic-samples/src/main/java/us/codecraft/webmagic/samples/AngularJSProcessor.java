@@ -5,7 +5,7 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.selector.JsonPathSelector;
+import us.codecraft.webmagic.selector.implementer.JsonPathSelector;
 
 import java.util.List;
 

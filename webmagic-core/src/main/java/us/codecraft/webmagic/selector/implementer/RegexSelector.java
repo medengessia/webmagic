@@ -1,6 +1,8 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
 import org.apache.commons.lang3.StringUtils;
+
+import us.codecraft.webmagic.selector.Selector;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,8 +6,8 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.model.samples.OschinaBlog;
-import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.PlainText;
+import us.codecraft.webmagic.selector.extender.Html;
 
 /**
  * @author code4crafter@gmail.com

@@ -1,4 +1,4 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
 /**
  * Object contains regex results.<br>

@@ -1,10 +1,12 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.extender;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
+
+import us.codecraft.webmagic.selector.BaseElementSelector;
 
 import java.util.ArrayList;
 import java.util.List;

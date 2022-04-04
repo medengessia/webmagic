@@ -11,6 +11,9 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import us.codecraft.webmagic.selector.extender.CssSelector;
+import us.codecraft.webmagic.selector.extender.Html;
+import us.codecraft.webmagic.selector.extender.XpathSelector;
 import us.codecraft.xsoup.XPathEvaluator;
 import us.codecraft.xsoup.Xsoup;
 

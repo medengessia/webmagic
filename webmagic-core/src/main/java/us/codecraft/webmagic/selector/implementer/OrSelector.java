@@ -1,7 +1,9 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import us.codecraft.webmagic.selector.Selector;
 
 /**
  * All extractors will do extracting separately, <br>

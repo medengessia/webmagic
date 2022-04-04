@@ -1,5 +1,6 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
+import us.codecraft.webmagic.selector.Selector;
 import us.codecraft.webmagic.utils.Experimental;
 
 import java.util.ArrayList;

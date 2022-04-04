@@ -3,6 +3,8 @@ package us.codecraft.webmagic.selector;
 import org.jsoup.Jsoup;
 import org.junit.Test;
 
+import us.codecraft.webmagic.selector.extender.LinksSelector;
+
 import java.util.List;
 
 /**

@@ -1,7 +1,9 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
 import com.alibaba.fastjson.JSON;
 import com.jayway.jsonpath.JsonPath;
+
+import us.codecraft.webmagic.selector.Selector;
 
 import java.util.ArrayList;
 import java.util.List;

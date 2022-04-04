@@ -2,6 +2,9 @@ package us.codecraft.webmagic.selector;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import us.codecraft.webmagic.selector.implementer.RegexSelector;
+import us.codecraft.webmagic.selector.implementer.ReplaceSelector;
+
 import java.util.ArrayList;
 import java.util.List;
 

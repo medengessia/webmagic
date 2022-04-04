@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.configurable;
 
-import us.codecraft.webmagic.selector.JsonPathSelector;
 import us.codecraft.webmagic.selector.Selector;
+import us.codecraft.webmagic.selector.implementer.JsonPathSelector;
 
 import static us.codecraft.webmagic.selector.Selectors.*;
 

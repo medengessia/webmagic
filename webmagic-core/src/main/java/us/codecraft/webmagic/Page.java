@@ -1,9 +1,10 @@
 package us.codecraft.webmagic;
 
 import org.apache.commons.lang3.StringUtils;
-import us.codecraft.webmagic.selector.Html;
-import us.codecraft.webmagic.selector.Json;
+
 import us.codecraft.webmagic.selector.Selectable;
+import us.codecraft.webmagic.selector.extender.Html;
+import us.codecraft.webmagic.selector.extender.Json;
 import us.codecraft.webmagic.utils.HttpConstant;
 import us.codecraft.webmagic.utils.UrlUtils;
 

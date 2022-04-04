@@ -1,5 +1,12 @@
 package us.codecraft.webmagic.selector;
 
+import us.codecraft.webmagic.selector.extender.CssSelector;
+import us.codecraft.webmagic.selector.extender.XpathSelector;
+import us.codecraft.webmagic.selector.implementer.AndSelector;
+import us.codecraft.webmagic.selector.implementer.OrSelector;
+import us.codecraft.webmagic.selector.implementer.RegexSelector;
+import us.codecraft.webmagic.selector.implementer.SmartContentSelector;
+
 /**
  * Convenient methods for selectors.<br>
  *

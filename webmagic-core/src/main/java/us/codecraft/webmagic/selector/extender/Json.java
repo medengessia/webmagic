@@ -1,6 +1,10 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.extender;
 
 import com.alibaba.fastjson.JSON;
+
+import us.codecraft.webmagic.selector.PlainText;
+import us.codecraft.webmagic.selector.Selectable;
+import us.codecraft.webmagic.selector.implementer.JsonPathSelector;
 import us.codecraft.xsoup.XTokenQueue;
 
 import java.util.List;

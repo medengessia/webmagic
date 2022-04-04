@@ -1,9 +1,11 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.implementer;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+
+import us.codecraft.webmagic.selector.Selector;
 
 /**
  * Replace selector.<br>

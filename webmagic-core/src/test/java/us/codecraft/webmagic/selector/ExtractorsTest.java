@@ -2,6 +2,8 @@ package us.codecraft.webmagic.selector;
 
 import org.junit.Test;
 
+import us.codecraft.webmagic.selector.implementer.OrSelector;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static us.codecraft.webmagic.selector.Selectors.*;
 

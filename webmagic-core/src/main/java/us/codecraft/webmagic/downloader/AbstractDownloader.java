@@ -3,7 +3,7 @@ package us.codecraft.webmagic.downloader;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.selector.Html;
+import us.codecraft.webmagic.selector.extender.Html;
 
 /**
  * Base class of downloader with some common methods.

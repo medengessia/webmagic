@@ -3,6 +3,8 @@ package us.codecraft.webmagic.selector;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import us.codecraft.webmagic.selector.implementer.RegexSelector;
+
 /**
  * @author code4crafter@gmail.com <br>
  */

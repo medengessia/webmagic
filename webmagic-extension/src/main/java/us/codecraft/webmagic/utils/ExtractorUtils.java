@@ -2,6 +2,10 @@ package us.codecraft.webmagic.utils;
 
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.selector.*;
+import us.codecraft.webmagic.selector.extender.CssSelector;
+import us.codecraft.webmagic.selector.extender.XpathSelector;
+import us.codecraft.webmagic.selector.implementer.JsonPathSelector;
+import us.codecraft.webmagic.selector.implementer.RegexSelector;
 
 import java.util.ArrayList;
 import java.util.List;

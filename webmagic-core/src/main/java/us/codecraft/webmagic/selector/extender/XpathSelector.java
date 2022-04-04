@@ -1,7 +1,9 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.extender;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.jsoup.nodes.Element;
+
+import us.codecraft.webmagic.selector.BaseElementSelector;
 import us.codecraft.xsoup.XPathEvaluator;
 import us.codecraft.xsoup.Xsoup;
 

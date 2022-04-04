@@ -1,10 +1,12 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.extender;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import us.codecraft.webmagic.selector.*;
 
 import java.util.Collections;
 import java.util.List;

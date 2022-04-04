@@ -3,6 +3,9 @@ package us.codecraft.webmagic.selector;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import us.codecraft.webmagic.selector.extender.*;
+import us.codecraft.webmagic.selector.implementer.SmartContentSelector;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;

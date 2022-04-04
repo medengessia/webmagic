@@ -1,4 +1,4 @@
-package us.codecraft.webmagic.selector;
+package us.codecraft.webmagic.selector.extender;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import us.codecraft.webmagic.selector.BaseElementSelector;
 
 /**
  * Links selector based on jsoup. Use absolute url. <br>
