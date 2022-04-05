@@ -1,11 +1,11 @@
 package us.codecraft.webmagic.model.samples;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.model.AfterExtractor;
-import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.TargetUrl;
+import us.codecraft.webmagic.model.page.OOSpider;
 
 import java.util.List;
 

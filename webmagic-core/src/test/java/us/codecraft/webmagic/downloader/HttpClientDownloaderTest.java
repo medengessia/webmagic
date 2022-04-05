@@ -11,11 +11,12 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
+
 import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.model.HttpRequestBody;
+import us.codecraft.webmagic.manager.HttpRequestBody;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.proxy.Proxy;
 import us.codecraft.webmagic.proxy.SimpleProxyProvider;
 import us.codecraft.webmagic.selector.extender.Html;

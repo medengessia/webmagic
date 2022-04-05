@@ -1,9 +1,9 @@
 package us.codecraft.webmagic.samples;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.downloader.selenium.SeleniumDownloader;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
+import us.codecraft.webmagic.manager.Spider;
 import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 

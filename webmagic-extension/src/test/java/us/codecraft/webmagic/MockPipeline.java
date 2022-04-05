@@ -1,5 +1,6 @@
 package us.codecraft.webmagic;
 
+import us.codecraft.webmagic.manager.ResultItems;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
 /**

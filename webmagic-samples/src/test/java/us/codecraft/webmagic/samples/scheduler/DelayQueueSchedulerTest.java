@@ -2,7 +2,8 @@ package us.codecraft.webmagic.samples.scheduler;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import us.codecraft.webmagic.Request;
+
+import us.codecraft.webmagic.manager.Request;
 
 import java.util.concurrent.TimeUnit;
 

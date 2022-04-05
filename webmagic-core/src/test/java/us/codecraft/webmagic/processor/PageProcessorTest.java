@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
 
 public class PageProcessorTest {
 

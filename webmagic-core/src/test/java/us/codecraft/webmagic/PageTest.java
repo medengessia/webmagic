@@ -2,6 +2,8 @@ package us.codecraft.webmagic;
 
 import org.junit.Test;
 
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.selector.extender.Html;
 
 import static org.junit.Assert.*;

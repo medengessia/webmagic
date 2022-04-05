@@ -6,8 +6,9 @@ import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mapdb.IndexTreeList;
 import org.mapdb.Serializer;
-import us.codecraft.webmagic.Request;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.scheduler.DuplicateRemovedScheduler;
 import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
 

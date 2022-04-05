@@ -2,6 +2,9 @@ package us.codecraft.webmagic;
 
 import org.junit.Ignore;
 import org.junit.Test;
+
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.model.AfterExtractor;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 

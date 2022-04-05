@@ -4,7 +4,11 @@ import junit.framework.Assert;
 import org.junit.Test;
 import us.codecraft.webmagic.*;
 import us.codecraft.webmagic.downloader.MockGithubDownloader;
-import us.codecraft.webmagic.model.OOSpider;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.ResultItems;
+import us.codecraft.webmagic.manager.Site;
+import us.codecraft.webmagic.manager.Spider;
+import us.codecraft.webmagic.model.page.OOSpider;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
 /**

@@ -1,8 +1,8 @@
 package us.codecraft.webmagic.recover;
 
 
-import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.samples.SinaBlogProcessor;
+import us.codecraft.webmagic.manager.Spider;
+import us.codecraft.webmagic.samples.blog.SinaBlogProcessor;
 import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
 
 /**

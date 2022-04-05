@@ -1,8 +1,8 @@
 package us.codecraft.webmagic.handler;
 
-import us.codecraft.webmagic.Request;
-
 import java.util.regex.Pattern;
+
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * Created with IntelliJ IDEA.

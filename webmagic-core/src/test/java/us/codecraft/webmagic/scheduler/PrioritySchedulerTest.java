@@ -3,9 +3,10 @@ package us.codecraft.webmagic.scheduler;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 
 /**
  * @author code4crafter@gmail.com <br>

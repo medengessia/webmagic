@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.handler;
 
-import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.ResultItems;
 
 /**
  * @author code4crafer@gmail.com

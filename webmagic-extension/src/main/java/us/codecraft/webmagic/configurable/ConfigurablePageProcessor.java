@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.configurable;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.utils.Experimental;
 

@@ -1,10 +1,10 @@
 package us.codecraft.webmagic.main;
 
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.model.OOSpider;
-import us.codecraft.webmagic.model.samples.IteyeBlog;
-import us.codecraft.webmagic.model.samples.News163;
-import us.codecraft.webmagic.model.samples.OschinaBlog;
+import us.codecraft.webmagic.manager.Site;
+import us.codecraft.webmagic.model.page.OOSpider;
+import us.codecraft.webmagic.model.samples.blog.IteyeBlog;
+import us.codecraft.webmagic.model.samples.blog.OschinaBlog;
+import us.codecraft.webmagic.model.samples.news.News163;
 import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.pipeline.MultiPagePipeline;
 

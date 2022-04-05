@@ -8,8 +8,9 @@ package us.codecraft.webmagic.scheduler;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
-import us.codecraft.webmagic.Request;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
 
 import java.nio.charset.Charset;

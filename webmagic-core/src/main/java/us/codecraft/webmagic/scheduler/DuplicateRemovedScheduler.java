@@ -2,8 +2,9 @@ package us.codecraft.webmagic.scheduler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import us.codecraft.webmagic.Request;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
 import us.codecraft.webmagic.scheduler.component.HashSetDuplicateRemover;
 import us.codecraft.webmagic.utils.HttpConstant;

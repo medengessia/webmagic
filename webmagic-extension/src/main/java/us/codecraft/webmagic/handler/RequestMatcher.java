@@ -1,6 +1,6 @@
 package us.codecraft.webmagic.handler;
 
-import us.codecraft.webmagic.Request;
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * @author code4crafer@gmail.com

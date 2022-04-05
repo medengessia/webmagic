@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import us.codecraft.webmagic.manager.HttpRequestBody;
+
 /** 
  * @author Medeng Matthieu
  */

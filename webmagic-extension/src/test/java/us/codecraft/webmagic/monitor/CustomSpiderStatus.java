@@ -1,6 +1,6 @@
 package us.codecraft.webmagic.monitor;
 
-import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.manager.Spider;
 
 /**
  * @author code4crafer@gmail.com

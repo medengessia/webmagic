@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.scheduler;
 
-import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.utils.NumberUtils;
 
 import java.util.Comparator;

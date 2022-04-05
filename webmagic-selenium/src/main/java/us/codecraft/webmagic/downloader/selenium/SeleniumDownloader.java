@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.Downloader;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.selector.PlainText;
 import us.codecraft.webmagic.selector.extender.Html;
 

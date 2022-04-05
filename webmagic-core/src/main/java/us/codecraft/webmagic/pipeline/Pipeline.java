@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.pipeline;
 
-import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.ResultItems;
 
 /**
  * Pipeline is the persistent and offline process part of crawler.<br>

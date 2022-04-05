@@ -1,5 +1,7 @@
 package us.codecraft.webmagic;
 
+import us.codecraft.webmagic.manager.Request;
+
 /**
  * Listener of Spider on page processing. Used for monitor and such on.
  *

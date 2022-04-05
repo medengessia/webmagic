@@ -3,9 +3,10 @@ package us.codecraft.webmagic.scripts;
 import org.apache.commons.cli.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Spider;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.ResultItems;
+import us.codecraft.webmagic.manager.Spider;
 import us.codecraft.webmagic.pipeline.Pipeline;
 import us.codecraft.webmagic.utils.WMCollections;
 

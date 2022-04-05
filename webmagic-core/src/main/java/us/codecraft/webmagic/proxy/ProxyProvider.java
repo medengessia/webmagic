@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.proxy;
 
-import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Page;
 
 /**
  * Proxy provider. <br>

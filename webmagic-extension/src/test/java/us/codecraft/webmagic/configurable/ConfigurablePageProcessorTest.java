@@ -1,10 +1,11 @@
 package us.codecraft.webmagic.configurable;
 
 import org.junit.Test;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
+
 import us.codecraft.webmagic.downloader.MockGithubDownloader;
+import us.codecraft.webmagic.manager.ResultItems;
+import us.codecraft.webmagic.manager.Site;
+import us.codecraft.webmagic.manager.Spider;
 
 import java.util.ArrayList;
 import java.util.List;

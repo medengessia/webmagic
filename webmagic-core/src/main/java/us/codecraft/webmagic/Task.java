@@ -1,5 +1,7 @@
 package us.codecraft.webmagic;
 
+import us.codecraft.webmagic.manager.Site;
+
 /**
  * Interface for identifying different tasks.<br>
  *

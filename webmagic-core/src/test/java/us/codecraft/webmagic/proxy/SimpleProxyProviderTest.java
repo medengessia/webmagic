@@ -1,8 +1,9 @@
 package us.codecraft.webmagic.proxy;
 
 import org.junit.Test;
-import us.codecraft.webmagic.Site;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Site;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

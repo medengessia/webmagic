@@ -1,8 +1,8 @@
 package us.codecraft.webmagic.downloader;
 
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * Downloader is the part that downloads web pages and store in Page object. <br>

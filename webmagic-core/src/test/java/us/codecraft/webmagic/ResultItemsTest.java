@@ -2,6 +2,7 @@ package us.codecraft.webmagic;
 
 import org.junit.Test;
 
+import us.codecraft.webmagic.manager.ResultItems;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

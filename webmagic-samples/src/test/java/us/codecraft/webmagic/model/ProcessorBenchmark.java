@@ -2,10 +2,12 @@ package us.codecraft.webmagic.model;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.model.samples.OschinaBlog;
+
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
+import us.codecraft.webmagic.model.page.ModelPageProcessor;
+import us.codecraft.webmagic.model.samples.blog.OschinaBlog;
 import us.codecraft.webmagic.selector.PlainText;
 import us.codecraft.webmagic.selector.extender.Html;
 

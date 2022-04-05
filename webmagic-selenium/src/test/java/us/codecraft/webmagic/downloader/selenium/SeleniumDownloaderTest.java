@@ -2,10 +2,11 @@ package us.codecraft.webmagic.downloader.selenium;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 
 /**
  * @author code4crafter@gmail.com <br>

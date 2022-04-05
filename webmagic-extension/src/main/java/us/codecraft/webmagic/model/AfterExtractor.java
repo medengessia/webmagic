@@ -1,6 +1,6 @@
 package us.codecraft.webmagic.model;
 
-import us.codecraft.webmagic.Page;
+import us.codecraft.webmagic.manager.Page;
 
 /**
  * Interface to be implemented by page models that need to do something after fields are extracted.<br>

@@ -1,7 +1,8 @@
 package us.codecraft.webmagic.monitor;
 
 import org.junit.Test;
-import us.codecraft.webmagic.Spider;
+
+import us.codecraft.webmagic.manager.Spider;
 import us.codecraft.webmagic.processor.example.GithubRepoPageProcessor;
 import us.codecraft.webmagic.processor.example.ZhihuPageProcessor;
 

@@ -1,10 +1,11 @@
 package us.codecraft.webmagic.example;
 
 import org.junit.Test;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Spider;
+
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.MockGithubDownloader;
+import us.codecraft.webmagic.manager.ResultItems;
+import us.codecraft.webmagic.manager.Spider;
 import us.codecraft.webmagic.pipeline.Pipeline;
 import us.codecraft.webmagic.processor.example.GithubRepoPageProcessor;
 

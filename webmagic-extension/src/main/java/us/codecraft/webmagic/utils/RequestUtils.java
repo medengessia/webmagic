@@ -1,12 +1,12 @@
 package us.codecraft.webmagic.utils;
 
-import us.codecraft.webmagic.Request;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * @author code4crafter@gmail.com

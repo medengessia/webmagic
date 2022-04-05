@@ -9,8 +9,8 @@ import com.alibaba.fastjson.JSON;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * the redis scheduler with priority

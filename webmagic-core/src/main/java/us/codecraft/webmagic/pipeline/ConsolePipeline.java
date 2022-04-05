@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.pipeline;
 
-import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.ResultItems;
 
 import java.util.Map;
 

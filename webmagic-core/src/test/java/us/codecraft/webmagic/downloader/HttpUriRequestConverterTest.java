@@ -1,8 +1,9 @@
 package us.codecraft.webmagic.downloader;
 
 import org.junit.Test;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
+
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.utils.UrlUtils;
 
 import java.net.URI;

@@ -3,8 +3,9 @@ package us.codecraft.webmagic.scripts;
 import org.apache.commons.io.IOUtils;
 import org.jruby.RubyHash;
 import org.python.core.PyDictionary;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
+
+import us.codecraft.webmagic.manager.Page;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 import javax.script.ScriptContext;

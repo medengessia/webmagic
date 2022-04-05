@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.scheduler.component;
 
-import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 
 /**
  * Remove duplicate requests.

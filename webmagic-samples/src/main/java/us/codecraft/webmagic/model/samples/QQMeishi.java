@@ -1,10 +1,10 @@
 package us.codecraft.webmagic.model.samples;
 
-import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.model.ConsolePageModelPipeline;
-import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.TargetUrl;
+import us.codecraft.webmagic.model.page.OOSpider;
 
 /**
  * @author code4crafter@gmail.com

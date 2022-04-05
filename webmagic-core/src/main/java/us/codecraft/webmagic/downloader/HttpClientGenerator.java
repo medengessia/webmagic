@@ -35,7 +35,7 @@ import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.manager.Site;
 
 /**
  * @author code4crafter@gmail.com <br>

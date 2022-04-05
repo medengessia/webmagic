@@ -14,8 +14,9 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.Site;
+
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.Site;
 import us.codecraft.webmagic.proxy.Proxy;
 import us.codecraft.webmagic.utils.HttpConstant;
 import us.codecraft.webmagic.utils.UrlUtils;

@@ -2,10 +2,11 @@ package us.codecraft.webmagic.pipeline;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import us.codecraft.webmagic.Request;
-import us.codecraft.webmagic.ResultItems;
-import us.codecraft.webmagic.Site;
+
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
+import us.codecraft.webmagic.manager.ResultItems;
+import us.codecraft.webmagic.manager.Site;
 
 import static org.junit.Assert.assertEquals;
 

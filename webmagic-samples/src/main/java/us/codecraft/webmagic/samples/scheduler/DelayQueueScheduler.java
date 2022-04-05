@@ -1,7 +1,7 @@
 package us.codecraft.webmagic.samples.scheduler;
 
-import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Task;
+import us.codecraft.webmagic.manager.Request;
 import us.codecraft.webmagic.scheduler.PriorityScheduler;
 
 import java.util.HashSet;

@@ -1,7 +1,8 @@
 package us.codecraft.webmagic.utils;
 
 import org.junit.Test;
-import us.codecraft.webmagic.Request;
+
+import us.codecraft.webmagic.manager.Request;
 
 import java.util.List;
 
