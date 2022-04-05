@@ -1,4 +1,4 @@
-package us.codecraft.webmagic.model.samples;
+package us.codecraft.webmagic.model.samples.other;
 
 import us.codecraft.webmagic.manager.Page;
 import us.codecraft.webmagic.manager.Site;
