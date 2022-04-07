@@ -47,6 +47,9 @@ public class HttpClientGenerator {
 
     private PoolingHttpClientConnectionManager connectionManager;
 
+    /**
+     * Generates a http client generator.
+     */
     public HttpClientGenerator() {
         Registry<ConnectionSocketFactory> reg = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", PlainConnectionSocketFactory.INSTANCE)
@@ -56,6 +59,29 @@ public class HttpClientGenerator {
         connectionManager.setDefaultMaxPerRoute(100);
     }
 
+    /**
+     * Sets the pool size.
+     * @param poolSize the integer to set the pool size with
+     * @return the http client generator.
+     */
+    public HttpClientGenerator setPoolSize(int poolSize) {
+        connectionManager.setMaxTotal(poolSize);
+        return this;
+    }
+
+    /**
+     * Gets the client.
+     * @param site the site whose client is generated
+     * @return the generated client.
+     */
+    public CloseableHttpClient getClient(Site site) {
+        return generateClient(site);
+    }
+    
+    /**
+     * Builds a SSL connection socket factory.
+     * @return the SSL connection socket factory.
+     */
     private SSLConnectionSocketFactory buildSSLConnectionSocketFactory() {
         try {
             SSLContext sslContext = createIgnoreVerifySSL();
@@ -77,6 +103,12 @@ public class HttpClientGenerator {
         return SSLConnectionSocketFactory.getSocketFactory();
 	}
 
+    /**
+     * Creates a ignore case for verifying SSL.
+     * @return the SSL context.
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
+     */
     private SSLContext createIgnoreVerifySSL() throws NoSuchAlgorithmException, KeyManagementException {
         // 实现一个X509TrustManager接口，用于绕过验证，不用修改里面的方法
         X509TrustManager trustManager = new X509TrustManager() {
@@ -101,15 +133,11 @@ public class HttpClientGenerator {
         return sc;
 	}
 
-    public HttpClientGenerator setPoolSize(int poolSize) {
-        connectionManager.setMaxTotal(poolSize);
-        return this;
-    }
-
-    public CloseableHttpClient getClient(Site site) {
-        return generateClient(site);
-    }
-
+    /**
+     * Generates a client for a site.
+     * @param site the site whose client is generated
+     * @return the http client to generate.
+     */
     private CloseableHttpClient generateClient(Site site) {
         HttpClientBuilder httpClientBuilder = HttpClients.custom();
 
@@ -145,6 +173,11 @@ public class HttpClientGenerator {
         return httpClientBuilder.build();
     }
 
+    /**
+     * Generates a cookie.
+     * @param httpClientBuilder the http client builder to disable in cookie management, then to reset
+     * @param site the site whose cookies will be used
+     */
     private void generateCookie(HttpClientBuilder httpClientBuilder, Site site) {
         if (site.isDisableCookieManagement()) {
             httpClientBuilder.disableCookieManagement();

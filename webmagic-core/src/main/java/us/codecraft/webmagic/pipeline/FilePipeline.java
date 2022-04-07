@@ -25,12 +25,16 @@ public class FilePipeline extends FilePersistentBase implements Pipeline {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
-     * create a FilePipeline with default path"/data/webmagic/"
+     * Creates a FilePipeline with default path"/data/webmagic/".
      */
     public FilePipeline() {
         setPath("/data/webmagic/");
     }
 
+    /**
+     * Creates a FilePipeline with a chosen path.
+     * @param path the path to set the pipeline with
+     */
     public FilePipeline(String path) {
         setPath(path);
     }

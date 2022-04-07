@@ -43,30 +43,20 @@ public class HttpClientDownloader extends AbstractDownloader {
 
     private boolean responseHeader = true;
 
+    /**
+     * Sets a request converter.
+     * @param httpUriRequestConverter the parameter to use in order to define the request converter
+     */
     public void setHttpUriRequestConverter(HttpUriRequestConverter httpUriRequestConverter) {
         this.httpUriRequestConverter = httpUriRequestConverter;
     }
 
+    /**
+     * Sets the proxy provider.
+     * @param proxyProvider the parameter to use in order to define the proxy provider
+     */
     public void setProxyProvider(ProxyProvider proxyProvider) {
         this.proxyProvider = proxyProvider;
-    }
-
-    private CloseableHttpClient getHttpClient(Site site) {
-        if (site == null) {
-            return httpClientGenerator.getClient(null);
-        }
-        String domain = site.getDomain();
-        CloseableHttpClient httpClient = httpClients.get(domain);
-        if (httpClient == null) {
-            synchronized (this) {
-                httpClient = httpClients.get(domain);
-                if (httpClient == null) {
-                    httpClient = httpClientGenerator.getClient(site);
-                    httpClients.put(domain, httpClient);
-                }
-            }
-        }
-        return httpClient;
     }
 
     @Override
@@ -105,6 +95,15 @@ public class HttpClientDownloader extends AbstractDownloader {
         httpClientGenerator.setPoolSize(thread);
     }
 
+    /**
+     * Responds by creating a new page and setting all characteristics that defines it.
+     * @param request the request for the page
+     * @param charset the charset set as a raw text
+     * @param httpResponse the http response
+     * @param task the task to handle
+     * @return the created page
+     * @throws IOException
+     */
     protected Page handleResponse(Request request, String charset, HttpResponse httpResponse, Task task) throws IOException {
         byte[] bytes = IOUtils.toByteArray(httpResponse.getEntity().getContent());
         String contentType = httpResponse.getEntity().getContentType() == null ? "" : httpResponse.getEntity().getContentType().getValue();
@@ -127,6 +126,13 @@ public class HttpClientDownloader extends AbstractDownloader {
         return page;
     }
 
+    /**
+     * Gets the html charset.
+     * @param contentType the type of the content
+     * @param contentBytes the bytes occupied by the content
+     * @return the html charset
+     * @throws IOException  
+     */
     private String getHtmlCharset(String contentType, byte[] contentBytes) throws IOException {
         String charset = CharsetUtils.detectCharset(contentType, contentBytes);
         if (charset == null) {
@@ -135,4 +141,28 @@ public class HttpClientDownloader extends AbstractDownloader {
         }
         return charset;
     }
+    
+    /**
+     * Gets the http client.
+     * @param site the site from which the http is got
+     * @return the http client.
+     */
+    private CloseableHttpClient getHttpClient(Site site) {
+        if (site == null) {
+            return httpClientGenerator.getClient(null);
+        }
+        String domain = site.getDomain();
+        CloseableHttpClient httpClient = httpClients.get(domain);
+        if (httpClient == null) {
+            synchronized (this) {
+                httpClient = httpClients.get(domain);
+                if (httpClient == null) {
+                    httpClient = httpClientGenerator.getClient(site);
+                    httpClients.put(domain, httpClient);
+                }
+            }
+        }
+        return httpClient;
+    }
+    
 }

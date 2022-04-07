@@ -32,6 +32,13 @@ import java.util.Map;
  */
 public class HttpUriRequestConverter {
 
+	/**
+	 * Converts a request context.
+	 * @param request the request to use to convert the former one
+	 * @param site the site to use to convert the former one
+	 * @param proxy the proxy to use to convert the former one
+	 * @return the converted http client request context.
+	 */
     public HttpClientRequestContext convert(Request request, Site site, Proxy proxy) {
         HttpClientRequestContext httpClientRequestContext = new HttpClientRequestContext();
         httpClientRequestContext.setHttpUriRequest(convertHttpUriRequest(request, site, proxy));
@@ -39,6 +46,13 @@ public class HttpUriRequestConverter {
         return httpClientRequestContext;
     }
 
+    /**
+     * Converts a client context.
+     * @param request the request to use to convert the former one 
+     * @param site the site to use to convert the former one
+     * @param proxy the proxy to use to convert the former one
+     * @return the converted http client context.
+     */
     @SuppressWarnings("deprecation")
 	private HttpClientContext convertHttpClientContext(Request request, Site site, Proxy proxy) {
         HttpClientContext httpContext = new HttpClientContext();
@@ -59,6 +73,13 @@ public class HttpUriRequestConverter {
         return httpContext;
     }
 
+    /**
+     * Converts an http url request.
+     * @param request the request to use to convert the former one
+     * @param site the site to use to convert the former one
+     * @param proxy the proxy to use to convert the former one
+     * @return the converted http url request.
+     */
     private HttpUriRequest convertHttpUriRequest(Request request, Site site, Proxy proxy) {
         RequestBuilder requestBuilder = selectRequestMethod(request).setUri(UrlUtils.fixIllegalCharacterInUrl(request.getUrl()));
         if (site.getHeaders() != null) {
@@ -88,6 +109,11 @@ public class HttpUriRequestConverter {
         return httpUriRequest;
     }
 
+    /**
+     * Selects a request method.
+     * @param request the request whose method will be used to choose a behaviour
+     * @return a request builder.
+     */
     private RequestBuilder selectRequestMethod(Request request) {
         String method = request.getMethod();
         if (method == null || method.equalsIgnoreCase(HttpConstant.Method.GET)) {
@@ -107,6 +133,12 @@ public class HttpUriRequestConverter {
         throw new IllegalArgumentException("Illegal HTTP Method " + method);
     }
 
+    /**
+     * Sets an entity to the request builder given as parameter.
+     * @param requestBuilder the request builder whose entity is to be set
+     * @param request the request whose body will constitute a new entity.
+     * @return the modified request builder.
+     */
     private RequestBuilder addFormParams(RequestBuilder requestBuilder, Request request) {
         if (request.getRequestBody() != null) {
             ByteArrayEntity entity = new ByteArrayEntity(request.getRequestBody().getBody());

@@ -17,6 +17,10 @@ public class SimplePageProcessor implements PageProcessor {
 
     private Site site;
 
+    /**
+     * Defines a simple page processor with an url pattern.
+     * @param urlPattern the pattern to define the page processor with
+     */
     public SimplePageProcessor(String urlPattern) {
         this.site = Site.me();
         //compile "*" expression to regex

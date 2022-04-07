@@ -79,18 +79,6 @@ public abstract class SuperSpider implements Runnable, Task {
 	}
 
     /**
-     * Set an uuid for spider.<br>
-     * Default uuid is domain of site.<br>
-     *
-     * @param uuid uuid
-     * @return this
-     */
-    public SuperSpider setUUID(String uuid) {
-        this.uuid = uuid;
-        return this;
-    }
-
-    /**
      * Get the list of spider listeners.
      * @return the list of spider listeners
      */
@@ -107,14 +95,6 @@ public abstract class SuperSpider implements Runnable, Task {
         this.spiderListeners = spiderListeners;
         return this;
     }
-    
-    /**
-     * Get the downloader.
-     * @return the downloader
-     */
-    public Downloader getDownloader() {
-		return downloader;
-	}
 
     /**
      * Get the start time of the crawler.
@@ -135,6 +115,29 @@ public abstract class SuperSpider implements Runnable, Task {
         return Status.fromValue(stat.get());
     }
 
+    /**
+     * Get the thread number.
+     * @return the thread number
+     */
+    public int getThreadNum() {
+		return threadNum;
+	}
+
+    /**
+     * start with more than one threads
+     *
+     * @param threadNum threadNum
+     * @return this
+     */
+    public SuperSpider thread(int threadNum) {
+        checkIfRunning();
+        this.threadNum = threadNum;
+        if (threadNum <= 0) {
+            throw new IllegalArgumentException("threadNum should be more than one!");
+        }
+        return this;
+    }
+    
     /**
      * Get thread count which is running
      *
@@ -158,6 +161,14 @@ public abstract class SuperSpider implements Runnable, Task {
         this.threadPool = threadPool;
         return this;
     }
+    
+    /**
+     * Get the thread pool.
+     * @return thread pool
+     */
+    public CountableThreadPool getThreadPool() {
+		return threadPool;
+	}
 
     /**
      * Set the executor service
@@ -182,6 +193,14 @@ public abstract class SuperSpider implements Runnable, Task {
     public SuperSpider setSpawnUrl(boolean spawnUrl) {
         this.spawnUrl = spawnUrl;
         return this;
+    }
+    
+    /**
+     * Indicates whether the url is spawn or not.
+     * @return true if the url is spawn, false otherwise 
+     */
+    public boolean isSpawnUrl() {
+        return spawnUrl;
     }
 
     /**
@@ -242,6 +261,14 @@ public abstract class SuperSpider implements Runnable, Task {
         pipelines = new ArrayList<Pipeline>();
         return this;
     }
+    
+    /**
+     * Get the downloader.
+     * @return the downloader
+     */
+    public Downloader getDownloader() {
+		return downloader;
+	}
 
     /**
      * set the downloader of spider
@@ -270,14 +297,6 @@ public abstract class SuperSpider implements Runnable, Task {
     }
 
     /**
-     * Indicates whether the exit is done when complete or not.
-     * @return true if the exit is done when complete, false otherwise
-     */
-    public boolean isExitWhenComplete() {
-        return exitWhenComplete;
-    }
-
-    /**
      * Exit when complete. <br>
      * True: exit when all url of the site is downloaded. <br>
      * False: not exit until call stop() manually.<br>
@@ -291,13 +310,13 @@ public abstract class SuperSpider implements Runnable, Task {
     }
 
     /**
-     * Indicates whether the url is spawn or not.
-     * @return true if the url is spawn, false otherwise 
+     * Indicates whether the exit is done when complete or not.
+     * @return true if the exit is done when complete, false otherwise
      */
-    public boolean isSpawnUrl() {
-        return spawnUrl;
+    public boolean isExitWhenComplete() {
+        return exitWhenComplete;
     }
-
+    
 	/**
      * Set startUrls of Spider.<br>
      * Prior to startUrls of Site.
@@ -360,32 +379,14 @@ public abstract class SuperSpider implements Runnable, Task {
     }   
     
     /**
-     * Get the thread pool.
-     * @return thread pool
-     */
-    public CountableThreadPool getThreadPool() {
-		return threadPool;
-	}
-    /**
-     * Get the thread number.
-     * @return the thread number
-     */
-    public int getThreadNum() {
-		return threadNum;
-	}
-
-    /**
-     * start with more than one threads
+     * Set an uuid for spider.<br>
+     * Default uuid is domain of site.<br>
      *
-     * @param threadNum threadNum
+     * @param uuid uuid
      * @return this
      */
-    public SuperSpider thread(int threadNum) {
-        checkIfRunning();
-        this.threadNum = threadNum;
-        if (threadNum <= 0) {
-            throw new IllegalArgumentException("threadNum should be more than one!");
-        }
+    public SuperSpider setUUID(String uuid) {
+        this.uuid = uuid;
         return this;
     }
     
