@@ -23,7 +23,7 @@ public class FilePipelineTest {
     @BeforeClass
     public static void before() {
         resultItems = new ResultItems();
-        resultItems.put("content", "webmagic 爬虫工具");
+        resultItems.put("content", "webmagic 爬虫工具"); // crawler tool
         Request request = new Request("http://www.baidu.com");
         resultItems.setRequest(request);
 

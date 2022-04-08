@@ -94,7 +94,7 @@ public class HttpClientGenerator {
             logger.debug("supportedProtocols: {}", String.join(", ", supportedProtocols));
             return new SSLConnectionSocketFactory(sslContext, supportedProtocols,
                     null,
-                    new DefaultHostnameVerifier()); // 优先绕过安全证书
+                    new DefaultHostnameVerifier()); // 优先绕过安全证书 Bypass security certificates in preference
         } catch (KeyManagementException e) {
             logger.error("ssl connection fail", e);
         } catch (NoSuchAlgorithmException e) {
@@ -110,7 +110,7 @@ public class HttpClientGenerator {
      * @throws KeyManagementException
      */
     private SSLContext createIgnoreVerifySSL() throws NoSuchAlgorithmException, KeyManagementException {
-        // 实现一个X509TrustManager接口，用于绕过验证，不用修改里面的方法
+        // 实现一个(implement one)X509TrustManager接口，用于绕过验证，不用修改里面的方法 (Interface, used to bypass authentication without modifying the methods inside)
         X509TrustManager trustManager = new X509TrustManager() {
 
             @Override
@@ -159,7 +159,7 @@ public class HttpClientGenerator {
                 }
             });
         }
-        //解决post/redirect/post 302跳转问题
+        //解决(settle)post/redirect/post 302跳转问题 (Jump question)
         httpClientBuilder.setRedirectStrategy(new CustomRedirectStrategy());
 
         SocketConfig.Builder socketConfigBuilder = SocketConfig.custom();

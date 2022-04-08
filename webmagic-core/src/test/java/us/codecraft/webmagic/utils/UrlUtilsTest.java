@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * @author code4crafter@gmail.com <br>
  * Date: 13-4-21
- * Time: 下午2:22
+ * Time: 下午2:22 (pm)
  */
 public class UrlUtilsTest {
 

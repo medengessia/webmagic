@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 /**
  * @author code4crafter@gmail.com
  *         Date: 17/3/11
- *         Time: 上午11:26
+ *         Time: 上午11:26 (am)
  */
 @RunWith(MockitoJUnitRunner.class)
 public class DuplicateRemovedSchedulerTest {

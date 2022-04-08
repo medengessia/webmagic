@@ -33,15 +33,15 @@ public class BaiduBaikePageProcessor implements PageProcessor {
         //single download
         Spider spider = (Spider) Spider.create(new BaiduBaikePageProcessor()).thread(2);
         String urlTemplate = "http://baike.baidu.com/search/word?word=%s&pic=1&sug=1&enc=utf8";
-        ResultItems resultItems = spider.<ResultItems>get(String.format(urlTemplate, "水力发电"));
+        ResultItems resultItems = spider.<ResultItems>get(String.format(urlTemplate, "水力发电")); // hydropower
         System.out.println(resultItems);
 
         //multidownload
         List<String> list = new ArrayList<String>();
-        list.add(String.format(urlTemplate,"风力发电"));
-        list.add(String.format(urlTemplate,"太阳能"));
-        list.add(String.format(urlTemplate,"地热发电"));
-        list.add(String.format(urlTemplate,"地热发电"));
+        list.add(String.format(urlTemplate,"风力发电")); // wind power generation
+        list.add(String.format(urlTemplate,"太阳能")); // solar energy
+        list.add(String.format(urlTemplate,"地热发电")); // geothermal power generation
+        list.add(String.format(urlTemplate,"地热发电")); // geothermal power generation
         List<ResultItems> resultItemses = spider.<ResultItems>getAll(list);
         for (ResultItems resultItemse : resultItemses) {
             System.out.println(resultItemse.getAll());

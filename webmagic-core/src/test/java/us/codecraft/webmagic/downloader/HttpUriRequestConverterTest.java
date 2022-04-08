@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * @author code4crafter@gmail.com
  *         Date: 2017/7/22
- *         Time: 下午5:29
+ *         Time: 下午5:29 (pm)
  */
 public class HttpUriRequestConverterTest {
 

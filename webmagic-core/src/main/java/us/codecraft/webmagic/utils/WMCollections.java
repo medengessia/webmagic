@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * @author code4crafter@gmail.com
  *         Date: 16/12/18
- *         Time: 上午10:16
+ *         Time: 上午10:16 (am)
  */
 public class WMCollections {
 

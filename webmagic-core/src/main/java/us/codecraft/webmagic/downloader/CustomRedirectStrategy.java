@@ -15,10 +15,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *支持post 302跳转策略实现类
- *HttpClient默认跳转：httpClientBuilder.setRedirectStrategy(new LaxRedirectStrategy());
- *上述代码在post/redirect/post这种情况下不会传递原有请求的数据信息。所以参考了下SeimiCrawler这个项目的重定向策略。
- *原代码地址：https://github.com/zhegexiaohuozi/SeimiCrawler/blob/master/project/src/main/java/cn/wanghaomiao/seimi/http/hc/SeimiRedirectStrategy.java
+ *支持(support)post 302跳转策略实现(jump policy implementation)类
+ *HttpClient默认跳转(default jump)：httpClientBuilder.setRedirectStrategy(new LaxRedirectStrategy());
+ *上述代码在(the above code is in)post/redirect/post这种情况下不会传递原有请求的数据信息。(In this case, the data information of the original request is not passed.) 
+ *所以参考了下(So it refers to the next)SeimiCrawler这个项目的重定向策略。(The redirection policy for this project.)
+ *原代码地址(original code address)：https://github.com/zhegexiaohuozi/SeimiCrawler/blob/master/project/src/main/java/cn/wanghaomiao/seimi/http/hc/SeimiRedirectStrategy.java
  */
 public class CustomRedirectStrategy extends LaxRedirectStrategy {
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -34,7 +35,7 @@ public class CustomRedirectStrategy extends LaxRedirectStrategy {
                 httpRequestWrapper.removeHeaders("Content-Length");
                 return httpRequestWrapper;
             } catch (Exception e) {
-                logger.error("强转为HttpRequestWrapper出错");
+                logger.error("强转为(turn to)HttpRequestWrapper出错(make mistake)");
             }
             return new HttpPost(uri);
         } else {
