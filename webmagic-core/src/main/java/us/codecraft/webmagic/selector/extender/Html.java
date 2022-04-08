@@ -32,6 +32,11 @@ public class Html extends HtmlNode {
      */
     private Document document;
 
+    /**
+     * Creates a html with a text and an url.
+     * @param text the text
+     * @param url the url
+     */
     public Html(String text, String url) {
         try {
             this.document = Jsoup.parse(text, url);
@@ -41,6 +46,10 @@ public class Html extends HtmlNode {
         }
     }
 
+    /**
+     * Creates a html with a text.
+     * @param text the text
+     */
     public Html(String text) {
         try {
             this.document = Jsoup.parse(text);
@@ -50,17 +59,20 @@ public class Html extends HtmlNode {
         }
     }
 
+    /**
+     * Creates a html with a document.
+     * @param document
+     */
     public Html(Document document) {
         this.document = document;
     }
 
+    /**
+     * Gets the document of the html.
+     * @return the document of the html.
+     */
     public Document getDocument() {
         return document;
-    }
-
-    @Override
-    protected List<Element> getElements() {
-        return Collections.<Element>singletonList(getDocument());
     }
 
     /**
@@ -76,6 +88,11 @@ public class Html extends HtmlNode {
         }
     }
 
+    /**
+     * Selects a list of strings with a selector.
+     * @param selector the selector
+     * @return the list selected.
+     */
     public List<String> selectDocumentForList(Selector selector) {
         if (selector instanceof ElementSelector) {
             ElementSelector elementSelector = (ElementSelector) selector;
@@ -85,8 +102,18 @@ public class Html extends HtmlNode {
         }
     }
 
+    /**
+     * Creates a html with a text.
+     * @param text the text
+     * @return a new html.
+     */
     public static Html create(String text) {
         return new Html(text);
+    }
+    
+    @Override
+    protected List<Element> getElements() {
+        return Collections.<Element>singletonList(getDocument());
     }
 
 }

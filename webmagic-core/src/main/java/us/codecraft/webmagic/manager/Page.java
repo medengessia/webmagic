@@ -57,12 +57,21 @@ public class Page {
     public Page() {
     }
 
+    /**
+     * Instantiates a page with download failure.
+     * @return a page with download failure.
+     */
     public static Page fail(){
         Page page = new Page();
         page.setDownloadSuccess(false);
         return page;
     }
 
+    /**
+     * Sets the skip at the resultItems attribute.
+     * @param skip the boolean to set the skip with
+     * @return the page with altered resultItems.
+     */
     public Page setSkip(boolean skip) {
         resultItems.setSkip(skip);
         return this;
@@ -113,6 +122,10 @@ public class Page {
         this.html = html;
     }
 
+    /**
+     * Gets the target request.
+     * @return the target request.
+     */
     public List<Request> getTargetRequests() {
         return targetRequests;
     }
@@ -179,6 +192,10 @@ public class Page {
         return url;
     }
 
+    /**
+     * Sets the url.
+     * @param url the url to set the attribute with
+     */
     public void setUrl(Selectable url) {
         this.url = url;
     }
@@ -192,60 +209,117 @@ public class Page {
         return request;
     }
 
+    /**
+     * Sets the request in the page and the resultItems.
+     * @param request the request to change the attribute by
+     */
     public void setRequest(Request request) {
         this.request = request;
         this.resultItems.setRequest(request);
     }
 
+    /**
+     * Gets the result items.
+     * @return the result items.
+     */
     public ResultItems getResultItems() {
         return resultItems;
     }
 
+    /**
+     * Gets the status' code.
+     * @return the status' code.
+     */
     public int getStatusCode() {
         return statusCode;
     }
 
+    /**
+     * Sets the status' code.
+     * @param statusCode the code to set as the status'.
+     */
     public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
     }
 
+    /**
+     * Gets the raw text.
+     * @return the raw text.
+     */
     public String getRawText() {
         return rawText;
     }
 
+    /**
+     * Sets the raw text.
+     * @param rawText the raw text to replace the former one by
+     * @return the modified page.
+     */
     public Page setRawText(String rawText) {
         this.rawText = rawText;
         return this;
     }
 
+    /**
+     * Gets the headers.
+     * @return the headers.
+     */
     public Map<String, List<String>> getHeaders() {
         return headers;
     }
 
+    /**
+     * Sets the headers.
+     * @param headers the map containing the headers to set as an attribute.
+     */
     public void setHeaders(Map<String, List<String>> headers) {
         this.headers = headers;
     }
 
+    /**
+     * Tells whether the download is successful or not.
+     * @return true if the download is successful, false otherwise.
+     */
     public boolean isDownloadSuccess() {
         return downloadSuccess;
     }
 
+    /**
+     * Sets the download's status.
+     * @param downloadSuccess the boolean value of the download's status
+     */
     public void setDownloadSuccess(boolean downloadSuccess) {
         this.downloadSuccess = downloadSuccess;
     }
 
+    /**
+     * Gets the bytes.
+     * @return the bytes.
+     */
     public byte[] getBytes() {
         return bytes;
     }
 
+    /**
+     * Sets the bytes.
+     * @param bytes the table of bytes to set the bytes with
+     */
     public void setBytes(byte[] bytes) {
         this.bytes = bytes;
     }
 
+    /**
+     * Gets the charset.
+     * @return the charset.
+     */
     public String getCharset() {
         return charset;
     }
 
+    /**
+     * Sets the charset.
+     * @param charset the string to set the charset with
+     */
     public void setCharset(String charset) {
         this.charset = charset;
     }

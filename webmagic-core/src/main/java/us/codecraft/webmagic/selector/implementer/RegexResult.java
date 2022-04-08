@@ -17,10 +17,19 @@ class RegexResult {
 
     }
 
+    /**
+     * Creates a regex result with a table of groups.
+     * @param groups the table of groups
+     */
     public RegexResult(String[] groups) {
         this.groups = groups;
     }
 
+    /**
+     * Gets a group in the table.
+     * @param groupId the index of the group
+     * @return a group in the table.
+     */
     public String get(int groupId) {
         if (groups == null) {
             return null;

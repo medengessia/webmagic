@@ -24,25 +24,18 @@ public class RegexSelector implements Selector {
 
     private int group = 1;
 
+    /**
+     * Creates a RegexSelector with a regular expression and a capture group.
+     * @param regexStr the regular expression
+     * @param group the group number
+     */
     public RegexSelector(String regexStr, int group) {
         this.compileRegex(regexStr);
         this.group = group;
-    }
-
-    private void compileRegex(String regexStr) {
-        if (StringUtils.isBlank(regexStr)) {
-            throw new IllegalArgumentException("regex must not be empty");
-        }
-        try {
-            this.regex = Pattern.compile(regexStr, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
-            this.regexStr = regexStr;
-        } catch (PatternSyntaxException e) {
-            throw new IllegalArgumentException("invalid regex "+regexStr, e);
-        }
-    }
+    }    
 
     /**
-     * Create a RegexSelector. When there is no capture group, the value is set to 0 else set to 1.
+     * Creates a RegexSelector. When there is no capture group, the value is set to 0 else set to 1.
      * @param regexStr the regular expression.
      */
     public RegexSelector(String regexStr) {
@@ -68,7 +61,17 @@ public class RegexSelector implements Selector {
         }
         return strings;
     }
+    
+    @Override
+    public String toString() {
+        return regexStr;
+    }
 
+    /**
+     * Generates a regex result when the text is found by the matcher.
+     * @param text the text
+     * @return the regular expression result
+     */
     public RegexResult selectGroup(String text) {
         Matcher matcher = regex.matcher(text);
         if (matcher.find()) {
@@ -81,6 +84,11 @@ public class RegexSelector implements Selector {
         return RegexResult.EMPTY_RESULT;
     }
 
+    /**
+     * Generates a list of regex results while the text is found by the matcher.
+     * @param text the text
+     * @return the list of regular expression results.
+     */
     public List<RegexResult> selectGroupList(String text) {
         Matcher matcher = regex.matcher(text);
         List<RegexResult> resultList = new ArrayList<RegexResult>();
@@ -93,10 +101,21 @@ public class RegexSelector implements Selector {
         }
         return resultList;
     }
-
-    @Override
-    public String toString() {
-        return regexStr;
+    
+    /**
+     * Compiles the regular expression given as parameter.
+     * @param regexStr the regular expression
+     */
+    private void compileRegex(String regexStr) {
+        if (StringUtils.isBlank(regexStr)) {
+            throw new IllegalArgumentException("regex must not be empty");
+        }
+        try {
+            this.regex = Pattern.compile(regexStr, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
+            this.regexStr = regexStr;
+        } catch (PatternSyntaxException e) {
+            throw new IllegalArgumentException("invalid regex "+regexStr, e);
+        }
     }
 
 }

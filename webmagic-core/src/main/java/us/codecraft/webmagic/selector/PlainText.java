@@ -14,15 +14,28 @@ public class PlainText extends AbstractSelectable {
 
     protected List<String> sourceTexts;
 
+    /**
+     * Creates a plain text with source texts. 
+     * @param sourceTexts the list of source texts
+     */
     public PlainText(List<String> sourceTexts) {
         this.sourceTexts = sourceTexts;
     }
 
+    /**
+     * Creates a plain text with just one source text.
+     * @param text the text to add in the list of source texts.
+     */
     public PlainText(String text) {
         this.sourceTexts = new ArrayList<String>();
         sourceTexts.add(text);
     }
 
+    /**
+     * Creates a plain text with just one source text.
+     * @param text the text to add in the list of source texts.
+     * @return a plain text with just one source text.
+     */
     public static PlainText create(String text) {
         return new PlainText(text);
     }

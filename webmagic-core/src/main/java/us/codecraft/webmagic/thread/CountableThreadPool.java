@@ -19,6 +19,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class CountableThreadPool {
 
     private int threadNum;
+    
+    private ExecutorService executorService;
 
     private AtomicInteger threadAlive = new AtomicInteger();
 
@@ -26,30 +28,53 @@ public class CountableThreadPool {
 
     private Condition condition = reentrantLock.newCondition();
 
+    /**
+     * Creates a CountableThreadPool with a thread number.
+     * @param threadNum the thread number
+     */
     public CountableThreadPool(int threadNum) {
         this.threadNum = threadNum;
         this.executorService = Executors.newFixedThreadPool(threadNum);
     }
 
+    /**
+     * Creates a CountableThreadPool with a thread number and an executor service
+     * @param threadNum the thread number
+     * @param executorService the executor service
+     */
     public CountableThreadPool(int threadNum, ExecutorService executorService) {
         this.threadNum = threadNum;
         this.executorService = executorService;
     }
 
+    /**
+     * Sets executor service.
+     * @param executorService the executor service to set as an attribute
+     */
     public void setExecutorService(ExecutorService executorService) {
         this.executorService = executorService;
     }
 
+    /**
+     * Gets the thread alive.
+     * @return the thread alive.
+     */
     public int getThreadAlive() {
         return threadAlive.get();
     }
 
+    /**
+     * Gets the thread number.
+     * @return the thread number.
+     */
     public int getThreadNum() {
         return threadNum;
     }
 
-    private ExecutorService executorService;
-
+    /**
+     * Executes a thread.
+     * @param runnable the unique runnable to run
+     */
     public void execute(final Runnable runnable) {
 
 
@@ -85,10 +110,17 @@ public class CountableThreadPool {
         });
     }
 
+    /**
+     * Tells whether the executor service is shut or not.
+     * @return true if the executor service is shut, false otherwise.
+     */
     public boolean isShutdown() {
         return executorService.isShutdown();
     }
 
+    /**
+     * Shuts the executor service.
+     */
     public void shutdown() {
         executorService.shutdown();
     }

@@ -19,6 +19,10 @@ public class XpathSelector extends BaseElementSelector {
 
     private XPathEvaluator xPathEvaluator;
 
+    /**
+     * Creates a Xpath selector with a Xpath string.
+     * @param xpathStr the Xpath string
+     */
     public XpathSelector(String xpathStr) {
         this.xPathEvaluator = Xsoup.compile(xpathStr);
     }

@@ -23,39 +23,23 @@ public class CssSelector extends BaseElementSelector {
 
     private String attrName;
 
+    /**
+     * Creates a css selector with a selector text.
+     * @param selectorText the selector text
+     */
     public CssSelector(String selectorText) {
         this.selectorText = selectorText;
     }
 
+    /**
+     * Creates a selector text with a selector text and an attribute name.
+     * @param selectorText the selector text
+     * @param attrName the attribute name
+     */
     public CssSelector(String selectorText, String attrName) {
         this.selectorText = selectorText;
         this.attrName = attrName;
-    }
-
-    private String getValue(Element element) {
-        if (attrName == null) {
-            return element.outerHtml();
-        } else if ("innerHtml".equalsIgnoreCase(attrName)) {
-            return element.html();
-        } else if ("text".equalsIgnoreCase(attrName)) {
-            return getText(element);
-        } else if ("allText".equalsIgnoreCase(attrName)) {
-            return element.text();
-        } else {
-            return element.attr(attrName);
-        }
-    }
-
-    protected String getText(Element element) {
-        StringBuilder accum = new StringBuilder();
-        for (Node node : element.childNodes()) {
-            if (node instanceof TextNode) {
-                TextNode textNode = (TextNode) node;
-                accum.append(textNode.text());
-            }
-        }
-        return accum.toString();
-    }
+    }    
 
     @Override
     public String select(Element element) {
@@ -99,4 +83,40 @@ public class CssSelector extends BaseElementSelector {
     public boolean hasAttribute() {
         return attrName != null;
     }
+    
+    /**
+     * Gets the text from an element.
+     * @param element the element
+     * @return the text got from the element.
+     */
+    protected String getText(Element element) {
+        StringBuilder accum = new StringBuilder();
+        for (Node node : element.childNodes()) {
+            if (node instanceof TextNode) {
+                TextNode textNode = (TextNode) node;
+                accum.append(textNode.text());
+            }
+        }
+        return accum.toString();
+    }
+    
+    /**
+     * Gets the value of an element.
+     * @param element the element
+     * @return the value of the element.
+     */
+    private String getValue(Element element) {
+        if (attrName == null) {
+            return element.outerHtml();
+        } else if ("innerHtml".equalsIgnoreCase(attrName)) {
+            return element.html();
+        } else if ("text".equalsIgnoreCase(attrName)) {
+            return getText(element);
+        } else if ("allText".equalsIgnoreCase(attrName)) {
+            return element.text();
+        } else {
+            return element.attr(attrName);
+        }
+    }
+    
 }

@@ -21,10 +21,19 @@ public abstract class DuplicateRemovedScheduler implements Scheduler {
 
     private DuplicateRemover duplicatedRemover = new HashSetDuplicateRemover();
 
+    /**
+     * Gets the duplicated remover.
+     * @return the duplicated remover.
+     */
     public DuplicateRemover getDuplicateRemover() {
         return duplicatedRemover;
     }
 
+    /**
+     * Sets the duplicated remover.
+     * @param duplicatedRemover the remover to set as an attribute.
+     * @return the modified duplicate removed scheduler.
+     */
     public DuplicateRemovedScheduler setDuplicateRemover(DuplicateRemover duplicatedRemover) {
         this.duplicatedRemover = duplicatedRemover;
         return this;
@@ -39,10 +48,20 @@ public abstract class DuplicateRemovedScheduler implements Scheduler {
         }
     }
 
+    /**
+     * Tells whether the key Request.CYCLE_TRIED_TIMES in the map extras of a request is null or not.
+     * @param request the request whose map will be seen as reserved or not
+     * @return true if the key Request.CYCLE_TRIED_TIMES in the map extras of a request is not null, false otherwise.
+     */
     protected boolean shouldReserved(Request request) {
         return request.getExtra(Request.CYCLE_TRIED_TIMES) != null;
     }
 
+    /**
+     * Tells whether the duplicated needs to be removed or not.
+     * @param request the request whose method will get used
+     * @return true if it is a need to remove the duplicated, false otherwise.
+     */
     protected boolean noNeedToRemoveDuplicate(Request request) {
         return HttpConstant.Method.POST.equalsIgnoreCase(request.getMethod());
     }
@@ -50,4 +69,5 @@ public abstract class DuplicateRemovedScheduler implements Scheduler {
     protected void pushWhenNoDuplicate(Request request, Task task) {
 
     }
+    
 }

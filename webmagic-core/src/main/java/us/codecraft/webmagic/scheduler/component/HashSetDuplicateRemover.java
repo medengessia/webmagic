@@ -17,11 +17,7 @@ public class HashSetDuplicateRemover implements DuplicateRemover {
     @Override
     public boolean isDuplicate(Request request, Task task) {
         return !urls.add(getUrl(request));
-    }
-
-    protected String getUrl(Request request) {
-        return request.getUrl();
-    }
+    }    
 
     @Override
     public void resetDuplicateCheck(Task task) {
@@ -32,4 +28,14 @@ public class HashSetDuplicateRemover implements DuplicateRemover {
     public int getTotalRequestsCount(Task task) {
         return urls.size();
     }
+    
+    /**
+     * Gets the url. 
+     * @param request the request whose url will be taken.
+     * @return the url.
+     */
+    protected String getUrl(Request request) {
+        return request.getUrl();
+    }
+    
 }

@@ -15,12 +15,20 @@ public class OrSelector implements Selector {
 
     private List<Selector> selectors = new ArrayList<Selector>();
 
+    /**
+     * Creates an Or selector from a bunch of selectors.
+     * @param selectors the bunch of selectors
+     */
     public OrSelector(Selector... selectors) {
         for (Selector selector : selectors) {
             this.selectors.add(selector);
         }
     }
 
+    /**
+     * Creates an Or selector from a list of selectors.
+     * @param selectors the list of selectors
+     */
     public OrSelector(List<Selector> selectors) {
         this.selectors = selectors;
     }

@@ -29,6 +29,11 @@ public abstract class BaseElementSelector implements Selector, ElementSelector {
         }
     }
 
+    /**
+     * Selects an element parsed from a text.
+     * @param text the text to get parsed
+     * @return the parsed element.
+     */
     public Element selectElement(String text) {
         if (text != null) {
             return selectElement(Jsoup.parse(text));
@@ -36,6 +41,11 @@ public abstract class BaseElementSelector implements Selector, ElementSelector {
         return null;
     }
 
+    /**
+     * Selects a list of elements parsed from a text.
+     * @param text the text to get parsed
+     * @return the parsed elements.
+     */
     public List<Element> selectElements(String text) {
         if (text != null) {
             return selectElements(Jsoup.parse(text));

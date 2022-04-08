@@ -21,6 +21,11 @@ public class ReplaceSelector implements Selector {
 
     private Pattern regex;
 
+    /**
+     * Creates a ReplaceSelector with a regular expression and a replacement string.
+     * @param regexStr the regex
+     * @param replacement the replacement string
+     */
     public ReplaceSelector(String regexStr, String replacement) {
         this.regexStr = regexStr;
         this.replacement = replacement;

@@ -20,6 +20,11 @@ public class Proxy {
 
     private String password;
 
+    /**
+     * Creates a new proxy.
+     * @param uri a unique uri to define the proxy
+     * @return the created proxy.
+     */
     public static Proxy create(final URI uri) {
         Proxy proxy = new Proxy(uri.getHost(), uri.getPort(), uri.getScheme());
         String userInfo = uri.getUserInfo();
@@ -35,16 +40,34 @@ public class Proxy {
         return proxy;
     }
 
+    /**
+     * Creates a proxy with an host and a port.
+     * @param host the host for the proxy
+     * @param port the port for the proxy
+     */
     public Proxy(String host, int port) {
         this(host, port, null);
     }
 
+    /**
+     * Creates a proxy with an host, a port and a scheme.
+     * @param host the host for the proxy
+     * @param port the port for the proxy
+     * @param scheme the scheme for the proxy
+     */
     public Proxy(String host, int port, String scheme) {
         this.host = host;
         this.port = port;
         this.scheme = scheme;
     }
 
+    /**
+     * Creates a proxy with an host, a port, a username and a password.
+     * @param host the host for the proxy
+     * @param port the port for the proxy
+     * @param username the username for the proxy
+     * @param password the password for the proxy
+     */
     public Proxy(String host, int port, String username, String password) {
         this.host = host;
         this.port = port;
@@ -52,30 +75,58 @@ public class Proxy {
         this.password = password;
     }
 
+    /**
+     * Gets the scheme.
+     * @return the scheme.
+     */
     public String getScheme() {
         return scheme;
     }
 
+    /**
+     * Sets the scheme.
+     * @param scheme the string to set as an attribute for scheme
+     */
     public void setScheme(String scheme) {
         this.scheme = scheme;
     }
 
+    /**
+     * Gets the host.
+     * @return the host.
+     */
 	public String getHost() {
         return host;
     }
 
+	/**
+	 * Gets the port.
+	 * @return the port.
+	 */
     public int getPort() {
         return port;
     }
 
+    /**
+     * Gets the username.
+     * @return the username.
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Gets the password. 
+     * @return the password.
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Builds an uri.
+     * @return the created uri.
+     */
     public URI toURI() {
         final StringBuilder userInfoBuffer = new StringBuilder();
         if (username != null) {
@@ -92,15 +143,6 @@ public class Proxy {
             throw new IllegalArgumentException(e.getMessage(), e);
         }
         return uri;
-    }
-
-    private String urlencode(String s) {
-        String enc = StandardCharsets.UTF_8.name();
-        try {
-            return URLEncoder.encode(s, enc);
-        } catch (UnsupportedEncodingException e) {
-            throw new IllegalArgumentException(e);
-        }
     }
 
     @Override
@@ -130,6 +172,21 @@ public class Proxy {
     @Override
     public String toString() {
         return this.toURI().toString();
+    }
+    
+    /**
+     * The encoded url.
+     *  @param s the string to encode as an url
+     *  @return the encoded url.
+     *  @throws IllegalArgumentException
+     */
+    private String urlencode(String s) {
+        String enc = StandardCharsets.UTF_8.name();
+        try {
+            return URLEncoder.encode(s, enc);
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
 }

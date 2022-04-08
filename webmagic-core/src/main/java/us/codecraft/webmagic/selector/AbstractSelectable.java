@@ -26,26 +26,6 @@ public abstract class AbstractSelectable implements Selectable {
         return $(selector, attrName);
     }
 
-    protected Selectable select(Selector selector, List<String> strings) {
-        List<String> results = new ArrayList<String>();
-        for (String string : strings) {
-            String result = selector.select(string);
-            if (result != null) {
-                results.add(result);
-            }
-        }
-        return new PlainText(results);
-    }
-
-    protected Selectable selectList(Selector selector, List<String> strings) {
-        List<String> results = new ArrayList<String>();
-        for (String string : strings) {
-            List<String> result = selector.selectList(string);
-            results.addAll(result);
-        }
-        return new PlainText(results);
-    }
-
     @Override
     public List<String> all() {
         return getSourceTexts();
@@ -93,6 +73,10 @@ public abstract class AbstractSelectable implements Selectable {
         return select(replaceSelector, getSourceTexts());
     }
 
+    /**
+     * Gets the first source text.
+     * @return the first source text.
+     */
     public String getFirstSourceText() {
         if (getSourceTexts() != null && getSourceTexts().size() > 0) {
             return getSourceTexts().get(0);
@@ -109,4 +93,37 @@ public abstract class AbstractSelectable implements Selectable {
     public boolean match() {
         return getSourceTexts() != null && getSourceTexts().size() > 0;
     }
+    
+    /**
+     * Selects some strings among a list to return them as a plain text.
+     * @param selector the selector of strings
+     * @param strings the list of strings
+     * @return the plain text containing the selected strings.
+     */
+    protected Selectable select(Selector selector, List<String> strings) {
+        List<String> results = new ArrayList<String>();
+        for (String string : strings) {
+            String result = selector.select(string);
+            if (result != null) {
+                results.add(result);
+            }
+        }
+        return new PlainText(results);
+    }
+
+    /**
+     * Selects some lists of strings among a list to return them as a plain text.
+     * @param selector the selector of strings
+     * @param strings the list of strings
+     * @return the plain text containing the selected lists of strings.
+     */
+    protected Selectable selectList(Selector selector, List<String> strings) {
+        List<String> results = new ArrayList<String>();
+        for (String string : strings) {
+            List<String> result = selector.selectList(string);
+            results.addAll(result);
+        }
+        return new PlainText(results);
+    }
+    
 }

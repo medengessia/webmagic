@@ -17,17 +17,20 @@ public class HtmlNode extends AbstractSelectable {
 
     private final List<Element> elements;
 
+    /**
+     * Creates a html node with a list of elements.
+     * @param elements the list of elements
+     */
     public HtmlNode(List<Element> elements) {
         this.elements = elements;
     }
 
+    /**
+     * Creates a html node with no list of elements.
+     */
     public HtmlNode() {
         elements = null;
-    }
-
-    protected List<Element> getElements() {
-        return elements;
-    }
+    } 
 
     @Override
     public Selectable smartContent() {
@@ -57,55 +60,7 @@ public class HtmlNode extends AbstractSelectable {
     @Override
     public Selectable select(Selector selector) {
         return selectList(selector);
-    }
-
-    /**
-     * select elements
-     *
-     * @param elementSelector elementSelector
-     * @return result
-     */
-    protected Selectable selectElements(BaseElementSelector elementSelector) {
-        ListIterator<Element> elementIterator = getElements().listIterator();
-        if (!elementSelector.hasAttribute()) {
-            List<Element> resultElements = new ArrayList<Element>();
-            while (elementIterator.hasNext()) {
-                Element element = checkElementAndConvert(elementIterator);
-                List<Element> selectElements = elementSelector.selectElements(element);
-                resultElements.addAll(selectElements);
-            }
-            return new HtmlNode(resultElements);
-        } else {
-            // has attribute, consider as plaintext
-            List<String> resultStrings = new ArrayList<String>();
-            while (elementIterator.hasNext()) {
-                Element element = checkElementAndConvert(elementIterator);
-                List<String> selectList = elementSelector.selectList(element);
-                resultStrings.addAll(selectList);
-            }
-            return new PlainText(resultStrings);
-
-        }
-    }
-
-    /**
-     * Only document can be select
-     * See: https://github.com/code4craft/webmagic/issues/113
-     *
-     * @param elementIterator elementIterator
-     * @return element element
-     */
-    private Element checkElementAndConvert(ListIterator<Element> elementIterator) {
-        Element element = elementIterator.next();
-        if (!(element instanceof Document)) {
-            Document root = new Document(element.ownerDocument().baseUri());
-            Element clone = element.clone();
-            root.appendChild(clone);
-            elementIterator.set(root);
-            return root;
-        }
-        return element;
-    }
+    }    
 
     @Override
     public Selectable $(String selector) {
@@ -138,4 +93,61 @@ public class HtmlNode extends AbstractSelectable {
         }
         return sourceTexts;
     }
+    
+    /**
+     * Gets the elements.
+     * @return the elements.
+     */
+    protected List<Element> getElements() {
+        return elements;
+    }
+    
+    /**
+     * select elements
+     *
+     * @param elementSelector elementSelector
+     * @return result
+     */
+    protected Selectable selectElements(BaseElementSelector elementSelector) {
+        ListIterator<Element> elementIterator = getElements().listIterator();
+        if (!elementSelector.hasAttribute()) {
+            List<Element> resultElements = new ArrayList<Element>();
+            while (elementIterator.hasNext()) {
+                Element element = checkElementAndConvert(elementIterator);
+                List<Element> selectElements = elementSelector.selectElements(element);
+                resultElements.addAll(selectElements);
+            }
+            return new HtmlNode(resultElements);
+        } else {
+            // has attribute, consider as plaintext
+            List<String> resultStrings = new ArrayList<String>();
+            while (elementIterator.hasNext()) {
+                Element element = checkElementAndConvert(elementIterator);
+                List<String> selectList = elementSelector.selectList(element);
+                resultStrings.addAll(selectList);
+            }
+            return new PlainText(resultStrings);
+
+        }
+    }
+    
+    /**
+     * Only document can be select
+     * See: https://github.com/code4craft/webmagic/issues/113
+     *
+     * @param elementIterator elementIterator
+     * @return element element
+     */
+    private Element checkElementAndConvert(ListIterator<Element> elementIterator) {
+        Element element = elementIterator.next();
+        if (!(element instanceof Document)) {
+            Document root = new Document(element.ownerDocument().baseUri());
+            Element clone = element.clone();
+            root.appendChild(clone);
+            elementIterator.set(root);
+            return root;
+        }
+        return element;
+    }
+    
 }

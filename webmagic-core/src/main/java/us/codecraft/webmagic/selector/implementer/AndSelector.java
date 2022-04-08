@@ -15,12 +15,20 @@ public class AndSelector implements Selector {
 
     private List<Selector> selectors = new ArrayList<Selector>();
 
+    /**
+     * Creates an And selector from a bunch of selectors.
+     * @param selectors the bunch of selectors
+     */
     public AndSelector(Selector... selectors) {
         for (Selector selector : selectors) {
             this.selectors.add(selector);
         }
     }
 
+    /**
+     * Creates an And selector from a list of selectors.
+     * @param selectors the list of selectors
+     */
     public AndSelector(List<Selector> selectors) {
         this.selectors = selectors;
     }

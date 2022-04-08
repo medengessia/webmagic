@@ -22,6 +22,10 @@ public class JsonPathSelector implements Selector {
 
     private JsonPath jsonPath;
 
+    /**
+     * Creates a Json path selector with a Json path string.
+     * @param jsonPathStr the Json path string
+     */
     public JsonPathSelector(String jsonPathStr) {
         this.jsonPathStr = jsonPathStr;
         this.jsonPath = JsonPath.compile(this.jsonPathStr);
@@ -42,14 +46,6 @@ public class JsonPathSelector implements Selector {
         return object.toString();
     }
 
-    private String toString(Object object) {
-        if (object instanceof Map) {
-            return JSON.toJSONString(object);
-        } else {
-            return String.valueOf(object);
-        }
-    }
-
     @Override
     public List<String> selectList(String text) {
         List<String> list = new ArrayList<String>();
@@ -67,4 +63,18 @@ public class JsonPathSelector implements Selector {
         }
         return list;
     }
+    
+    /**
+     * Displays the string format of an object.
+     * @param object the object
+     * @return the string format of an object.
+     */
+    private String toString(Object object) {
+        if (object instanceof Map) {
+            return JSON.toJSONString(object);
+        } else {
+            return String.valueOf(object);
+        }
+    }
+    
 }
