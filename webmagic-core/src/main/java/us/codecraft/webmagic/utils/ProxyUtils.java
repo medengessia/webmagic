@@ -19,6 +19,11 @@ public class ProxyUtils {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProxyUtils.class);
 
+	/**
+	 * Tells whether the proxy is validated or not.
+	 * @param p the proxy to validate
+	 * @return true if the proxy is validated, false otherwise.
+	 */
 	public static boolean validateProxy(Proxy p) {
 		Socket socket = null;
 		try {

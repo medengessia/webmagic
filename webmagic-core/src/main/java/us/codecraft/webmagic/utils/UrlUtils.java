@@ -20,6 +20,10 @@ import java.util.regex.Pattern;
  * @since 0.1.0
  */
 public class UrlUtils {
+	
+	private static Pattern patternForProtocal = Pattern.compile("[\\w]+://");
+	
+	private static final Pattern patternForCharset = Pattern.compile("charset\\s*=\\s*['\"]*([^\\s;'\"]*)", Pattern.CASE_INSENSITIVE);
 
     /**
      * canonicalizeUrl
@@ -60,11 +64,21 @@ public class UrlUtils {
         return url.replace(" ", "%20");
     }
 
+    /**
+     * Fixes an illegal character in an url.
+     * @param url the url to fix
+     * @return the fixed url.
+     */
     public static String fixIllegalCharacterInUrl(String url) {
         //TODO more charator support
         return url.replace(" ", "%20").replaceAll("#+", "#");
     }
 
+    /**
+     * Gets the host of an url.
+     * @param url the url
+     * @return the host of the url.
+     */
     public static String getHost(String url) {
         String host = url;
         int i = StringUtils.ordinalIndexOf(url, "/", 3);
@@ -74,12 +88,20 @@ public class UrlUtils {
         return host;
     }
 
-    private static Pattern patternForProtocal = Pattern.compile("[\\w]+://");
-
+    /**
+     * Removes protocol in an url.
+     * @param url the url
+     * @return the string without protocol.
+     */
     public static String removeProtocol(String url) {
         return patternForProtocal.matcher(url).replaceAll("");
     }
 
+    /**
+     * Gets the domain of an url.
+     * @param url the url
+     * @return the domain.
+     */
     public static String getDomain(String url) {
         String domain = removeProtocol(url);
         int i = StringUtils.indexOf(domain, "/", 1);
@@ -89,6 +111,11 @@ public class UrlUtils {
         return removePort(domain);
     }
 
+    /**
+     * Removes the port of a domain.
+     * @param domain the domain
+     * @return the domain without the port.
+     */
     public static String removePort(String domain) {
         int portIndex = domain.indexOf(":");
         if (portIndex != -1) {
@@ -98,6 +125,11 @@ public class UrlUtils {
         }
     }
 
+    /**
+     * Converts a collection of urls to a list of requests.
+     * @param urls the urls
+     * @return the list of requests.
+     */
     public static List<Request> convertToRequests(Collection<String> urls) {
         List<Request> requestList = new ArrayList<Request>(urls.size());
         for (String url : urls) {
@@ -106,6 +138,11 @@ public class UrlUtils {
         return requestList;
     }
 
+    /**
+     * Converts a collection of requests to a list of urls.
+     * @param requests the requests
+     * @return the list of requests.
+     */
     public static List<String> convertToUrls(Collection<Request> requests) {
         List<String> urlList = new ArrayList<String>(requests.size());
         for (Request request : requests) {
@@ -114,8 +151,11 @@ public class UrlUtils {
         return urlList;
     }
 
-    private static final Pattern patternForCharset = Pattern.compile("charset\\s*=\\s*['\"]*([^\\s;'\"]*)", Pattern.CASE_INSENSITIVE);
-
+    /**
+     * Gets the charset of a content type.
+     * @param contentType the content type
+     * @return the charset of the content type.
+     */
     public static String getCharset(String contentType) {
         Matcher matcher = patternForCharset.matcher(contentType);
         if (matcher.find()) {

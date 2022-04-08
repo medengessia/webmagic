@@ -13,6 +13,11 @@ import java.util.Map;
  */
 public abstract class HttpClientUtils {
 
+	/**
+	 * Converts headers into a map.
+	 * @param headers the table of headers
+	 * @return the map of headers.
+	 */
     public static Map<String,List<String>> convertHeaders(Header[] headers){
         Map<String,List<String>> results = new HashMap<String, List<String>>();
         for (Header header : headers) {
